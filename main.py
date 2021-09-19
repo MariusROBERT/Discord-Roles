@@ -54,6 +54,7 @@ async def on_message(message):
                 #print(message.author.joined_at)
                 #await edit(roles= )
                 role = discord.utils.get(serveur.roles, name=i)
+                member = serveur.get_member(message.author)
                 await message.author.add_roles(role, reason="Bot de Marius")
                 await message.author.send("Un rôle vous a été assigné")
                 addBanList(message.author.id)
