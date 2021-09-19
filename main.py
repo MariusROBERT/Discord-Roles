@@ -20,6 +20,7 @@ client = discord.Client(intents=intents)
 
 
 def addBanList(id):
+    global infos
     with open(fileJson, "w") as f:
         infos["banlist"].append(id)
         infos = json.dump(infos, f)
@@ -45,10 +46,10 @@ async def on_message(message):
         for i in liste_roles:
             if i in texte.lower():
                 #add_role(message.author)
-                print(id_server)
-                print(type(id_server))
+                #print(id_server)
+                #print(type(id_server))
                 serveur = client.get_guild(id_server)
-                print(serveur.name)
+                #print(serveur.name)
                 #print(user.mention[2:-1])
                 #print(user.roles)
                 #print(serveur.members)
@@ -56,12 +57,12 @@ async def on_message(message):
                 #print(message.author.joined_at)
                 #await edit(roles= )
                 role = discord.utils.get(serveur.roles, name=i)
-                member = serveur.get_member(message.author)
-                await message.author.add_roles(role, reason="Bot de Marius")
+                member = serveur.get_member(message.author.id)
+                await member.add_roles(role, reason="Bot de Marius")
                 await message.author.send("Un rôle vous a été assigné")
                 addBanList(message.author.id)
                 return
-        await message.author.send("Désolé, cette classe n'est pas reconnue, veuillez re-essayer")
+        await message.author.send("Désolé, cette classe n'est pas reconnue, veuillez re-essayer (indiquez seulement votre classe)")
 
 
 
