@@ -1,5 +1,5 @@
 import discord
-from discord.ext import tasks, commands
+#from discord.ext import tasks, commands
 import json
 
 fileJson = "token.json"
@@ -44,7 +44,7 @@ async def on_message(message):
         print("{} from {}".format(texte, user))
 
         for i in liste_roles:
-            if i in texte.lower():
+            if i.lower() in texte.lower():
                 #add_role(message.author)
                 #print(id_server)
                 #print(type(id_server))
