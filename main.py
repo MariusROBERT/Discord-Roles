@@ -44,3 +44,15 @@ async def on_message(message):
                 await member.add_roles(role, reason="Seig Role Bot")
                 await message.author.send("Un rôle vous a été assigné")
                 return
+
+
+
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+    #await client.change_presence(activity=discord.Game(name='Send message to get a role'))
+
+client.run(token)
