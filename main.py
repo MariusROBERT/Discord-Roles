@@ -45,8 +45,10 @@ async def on_message(message):
         for i in liste_roles:
             if i in texte.lower():
                 #add_role(message.author)
+                print(id_server)
+                print(type(id_server))
                 serveur = client.get_guild(id_server)
-                #print(serveur.name)
+                print(serveur.name)
                 #print(user.mention[2:-1])
                 #print(user.roles)
                 #print(serveur.members)
